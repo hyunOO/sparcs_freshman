@@ -1,0 +1,42 @@
+{% load staticfiles %}
+<html>
+	<head>
+		<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+    	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    	<script type="text/javascript" src ="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+    	<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+    	<script type="text/javascript"> var data = {{ folder_news }} </script>
+    	<script type="text/javascript" src = "static/scrap/js/news.js"></script>
+    	<link rel="stylesheet" href="{% static 'scrap/css/news.css' %}" >
+    	<link href="https://fonts.googleapis.com/css?family=Spectral+SC" rel="stylesheet">
+	</head>
+	<body>
+		<h1 class="header1">
+            Screen Scrap
+        </h1>
+        <div class="create_news">
+        	<form class="new_news" action = "/news/{{folder}}" method = "POST">
+        		<div class="scraping">
+        			new title :
+					{% csrf_token %}
+					<input type = "text" name = "title" />
+        		</div>
+    			<div class="scraping">
+    				insert link : 
+					{% csrf_token %}
+					<input type = "text" name = "url" />
+    			</div>
+				<div class="scraping1">
+					<input type = "submit" value = "스크랩" />
+				</div>
+			</form>
+        </div>
+
+		{% for news_folder in folder_news %}
+			<div class="news_s">
+				{{news_folder.newsNumber.newsFile|safe}}
+			</div>
+	    {% endfor %}
+	</body>
+
+</html>

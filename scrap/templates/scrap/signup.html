@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <div>
+            <title>Screen Scrap</title>
+        </div>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Spectral+SC" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'scrap/css/signup.css' %}" >
+    </head>
+	<body>
+        <h1 class="header1">
+            Screen Scrap
+        </h1>
+
+        <div class = "form">
+            <form class = "register-form" action = "/signup/" method = "POST">
+                <p class="title">Sign Up</p>
+
+                <div>
+                    <input type="text" placeholder="New Username" name="username" />
+                </div>
+
+                <div>
+                    {% csrf_token %}
+                    <input type="password" placeholder="New Password" name="password" />
+                </div>
+
+               <button> create </button>
+
+                <p class="message">
+                    Already registered? 
+                    <a href="/">Sign In</a>
+                </p>
+            </form>
+        </div>
+        
+	</body>
+</html>

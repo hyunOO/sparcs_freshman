@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <div>
+            <title>Screen Scrap</title>
+        </div>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'scrap/css/login.css' %}" >
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'css/question_list.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Spectral+SC" rel="stylesheet">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="{% static 'static/scrap/js/login.js' %}"></script>
+
+    </head>
+	<body>
+        <h1 class="header1">
+            Screen Scrap
+        </h1>
+        <div class = "form">
+            <form class = "register-form" action = "/signup/" method = "POST">
+                <div>
+                    Sign Up
+                </div>
+
+                <div>
+                    <!--<span class="glyphicon glyphicon-user"></span>-->
+                    <input type="text" placeholder="New Username" name="username" />
+                </div>
+
+                <div>
+                    <!--<span class="glyphicon glyphicon-lock"></span>-->
+                    {% csrf_token %}
+                    <input type="password" placeholder="New Password" name="password" />
+                </div>
+
+                <button> create </button>
+
+                <p class="message">
+                    Already registered? 
+                    <a href="">Sign In</a>
+                </p>
+            </form>
+
+
+
+            <form class="login-form" action = "/login_configure/" method = "POST">
+                <p class="title">Log in</p>
+                <div>
+                    <!--<span class="glyphicon glyphicon-user"></span> -->
+                    <input type = "text" placeholder = "Username" name = "username" />
+                </div>
+                
+                <div>
+                    <!--<span class="glyphicon glyphicon-lock"></span> -->
+                    {% csrf_token %}
+                    <input type = "password" placeholder = "Password" name = "password" />
+                </div>
+
+                <div>
+                    <button > login </button>
+                </div>
+                <p class = "message">
+                    Not registered? 
+                    <a href = "/signup_signup">Create Account</a>
+                </p>
+            </form>
+        </div>
+        
+	</body>
+</html>

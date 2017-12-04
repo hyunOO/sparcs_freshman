@@ -1,0 +1,39 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <div>
+            <title>Screen Scrap</title>
+        </div>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'scrap/css/folder.css' %}" >
+        <link href="https://fonts.googleapis.com/css?family=Spectral+SC" rel="stylesheet">
+    </head>
+    <body>
+        <h1 class="header1">
+            Screen Scrap
+            <a class="folder_make" onclick = "createFolder()">폴더 만들기</a>
+        </h1>
+        {% for folder in folders %}
+            <div class = "folder_box">
+                <a href = "/news/{{folder.folderNumber}}">
+                <!--
+                {% load static %}
+                <img src = "{% static "scrap/Folder-icon.png" %}" alt = "Folder image" />
+                -->
+                    <p class="folder_name"> {{folder.folderName}} </p>
+                </a>
+            </div>
+        {% endfor %}
+
+        <div id = "insertHere"></div>
+        <script type = "text/javascript">
+            function createFolder(){
+                const s  = "<div class=\"folder_box\"></div>";
+                const text = "<form action = \"/folder/\" method = \"POST\"> {% csrf_token %} <input class = \"folder_new_name\" type = \"text\" name = \"folderName\" value = \"직박구리\"> <div style = \"display : none\"><input type = \"submit\" value = \"Submit\"></div> </form>";
+                document.getElementById("insertHere").innerHTML += s + text
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+
+.header1{
+  font-family: 'Spectral SC', serif;
+  text-align: center;
+  font-size: 50pt;
+  border-bottom: 5px solid black;
+  height: 100px;
+  margin-bottom: 2px;
+}
+
+.create_news{
+	height: 40px!important;
+	border-bottom: 3px solid black;
+}
+
+.scraping{
+	font-family: 'Spectral SC', serif;
+	font-size: 20pt;
+	margin-left: 20px;
+	width: 600px;
+	height: 10px!important;
+	display: inline-block;
+}
+
+.scraping input{
+	width: 60%;
+}
+
+.scraping1{
+	display: none;
+}
+
+.news_s{
+	margin-top: 30px;
+}
